@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="dataStatistics">
+	<!-- 得到下一年 -->
+	<select id="getnextyear" parameterClass="java.util.Date" resultClass="java.util.Date">
+		select date_add(#date#,interval 1 year) as date;
+	</select>
+	<!-- 得到下一季度 -->
+	<select id="getnextquarter" parameterClass="java.util.Date" resultClass="java.util.Date">
+		select date_add(#date#,interval 1 quarter) as date;
+	</select>
+	<!-- 得到下一月 -->
+	<select id="getnextmonth" parameterClass="java.util.Date" resultClass="java.util.Date">
+		select date_add(#date#,interval 1 month) as date;
+	</select>
+	<!-- 得到下一周 -->
+	<select id="getnextweek" parameterClass="java.util.Date" resultClass="java.util.Date">
+		select date_add(#date#,interval 1 week) as date;
+	</select>
+	<!-- 得到下一天 -->
+	<select id="getnextday" parameterClass="java.util.Date" resultClass="java.util.Date">
+		select date_add(#date#,interval 1 day) as date;
+	</select>
+	<!-- 得到下一小时 -->
+	<select id="getnexthour" parameterClass="java.util.Date" resultClass="java.util.Date">
+		select date_add(#date#,interval 1 hour) as date;
+	</select>
+	<!-- 得到下一分 -->
+	<select id="getnextminute" parameterClass="java.util.Date" resultClass="java.util.Date">
+		select date_add(#date#,interval 1 minute) as date;
+	</select>
+	<!-- 得到下一秒-->
+	<select id="getnextsecond" parameterClass="java.util.Date" resultClass="java.util.Date">
+		select date_add(#date#,interval 1 second) as date;
+	</select>
+	<!-- 得到当前季度 -->
+	<select id="getseason" parameterClass="java.util.Date" resultClass="int">
+		select quarter(#date#) as season;
+	</select>
+	
+	<!-- 得到当前月份 -->
+	<select id="getmonth" parameterClass="java.util.Date" resultClass="int">
+		select month(#date#) as month;
+	</select>
+	
+	<!-- 得到当前周 -->
+	<select id="getweek" parameterClass="java.util.Date" resultClass="int">
+		select week(#date#) as week;
+	</select>
+	<!-- 得到当前是本周的第几天 -->
+	<select id="getdayofweek" parameterClass="java.util.Date" resultClass="int">
+		select dayofweek(#date#) as day;
+	</select>
+	
+</sqlMap>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="truckManager">
+	<typeAlias alias="TruckDynamic" type="cn.nfschina.zhhw.model.TruckDynamic"/>
+	<typeAlias alias="TruckInfo" type="cn.nfschina.zhhw.model.TruckInfo"/>
+	<typeAlias alias="Person" type="cn.nfschina.zhhw.model.Person"/>
+	<resultMap id="tab_person" class="Person">
+		<result property="no" column="id"/>
+		<result property="company" column="comp_name"/>
+		<result property="name" column="driver_name"/>
+		<result property="respondArea" column="area"/>
+		<result property="status" column="status"/>
+	</resultMap>
+	
+	<resultMap id="tab_car" class="TruckDynamic">
+		<result property="truck_id" column="id"/>
+		<result property="speed" column="speed"/>
+		<result property="company" column="org_name"/>
+		<result property="oil" column="gas"/>
+		<result property="car_lng" column="lng"/>
+		<result property="car_lat" column="lat"/>
+		<result property="status" column="status"/>
+		<result property="createTime" column="createtime"/>
+	</resultMap>
+	
+	<select id="getAllTruck" parameterClass="java.util.List" resultMap="tab_car">
+			select car.id,last.speed,org.org_name,last.gas,last.lng,last.lat,last.status,date_format(last.createtime,"%Y-%m-%d %H:%i:%s") createtime  
+				from t_car car,t_position_last last,sf_org org 
+				where last.fk_car_id=car.id and  car.fk_org_id=org.org_id 
+					<isNotEmpty prepend="and" property="list">
+						car.plate_no in <iterate conjunction=","  open="(" close=")">#list[]#</iterate>
+					</isNotEmpty>
+
+	</select>
+	
+	<select id="getAllTruckByPlateNo" parameterClass="java.util.List" resultMap="tab_car">
+			select car.id,last.speed,org.org_name,last.gas,last.lng,last.lat,last.status,date_format(last.createtime,"%Y-%m-%d %H:%i:%s") createtime
+				from t_car car,t_position_last last,sf_org org 
+				where last.fk_car_id=car.id and  car.fk_org_id=org.org_id 
+				and car.plate_no in <iterate conjunction=","  open="(" close=")">#list[]#</iterate>
+
+	</select>
+	
+	<select id="getAllTruckByOrgId" parameterClass="java.util.List" resultClass="TruckInfo">
+		select car.id,car.plate_no 
+			from t_car car,sf_org org 
+			where car.fk_org_id=org.org_id and org.org_id in <iterate conjunction=","  open="(" close=")">#list[]#</iterate>	 
+	</select>
+	
+	<select id="getCarByPlateNo" parameterClass="String" resultMap="tab_car">
+		<![CDATA[
+			select car.id,last.speed,org.org_name,last.gas,last.lng,last.lat,last.status
+				from t_car car,t_position_last last,sf_org org 
+				where last.fk_car_id=car.id and car.fk_org_id=org.org_id and car.plate_no=#plate_no#;
+		]]>
+	</select>
+	
+</sqlMap>

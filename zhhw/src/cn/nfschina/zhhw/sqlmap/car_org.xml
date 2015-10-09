@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="carOrg">
+	<typeAlias alias="carOrg" type="cn.nfschina.zhhw.model.Org"/>
+	
+	<select id="getAllOrg" resultClass="carOrg">
+		<![CDATA[
+			select org.org_id,org.org_name,org.parent_org_id from sf_org org;
+		]]>
+	</select>
+	
+	
+</sqlMap>

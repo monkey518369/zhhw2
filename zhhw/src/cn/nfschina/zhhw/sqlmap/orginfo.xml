@@ -1,0 +1,9 @@
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="orginfo">
+	<typeAlias alias="org" type="cn.nfschina.zhhw.model.Org"/>
+
+	<select id="getorgbyid" parameterClass="string" resultClass="org">
+		select * from sf_org where org_id = #orgId#
+	</select>
+</sqlMap>

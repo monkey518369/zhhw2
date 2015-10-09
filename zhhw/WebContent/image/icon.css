@@ -1,0 +1,21 @@
+.icon-line{
+	background:url('history/line.png') no-repeat center center;
+}
+.icon-start{
+	background:url('history/start.gif') no-repeat center center;
+}
+.icon-stop{
+	background:url('history/stop.gif') no-repeat center center;
+}
+.icon-pause{
+	background:url('history/pause.gif') no-repeat center center;
+}
+.icon-hide{
+	background:url('history/hide.gif') no-repeat center center;
+}
+.icon-show{
+	background:url('history/show.gif') no-repeat center center;
+}
+.icon-speed{
+	background:url('history/speed.png') no-repeat center center;
+}

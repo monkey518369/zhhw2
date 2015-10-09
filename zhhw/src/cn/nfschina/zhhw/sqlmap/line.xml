@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="line">
+	<typeAlias alias="line" type="cn.nfschina.zhhw.model.Line"/>
+	<typeAlias alias="linepoint" type="cn.nfschina.zhhw.model.LinePoint"/>
+	<!-- 查找围栏 -->
+	<select id="getLine" parameterClass="line" resultClass="line">  
+		select * from t_line
+		<dynamic prepend="where" >
+			<isNotEmpty prepend="and" property="id">
+				id=#id#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="line_name">
+				line_name=#line_name#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="speed">
+				speed=#speed#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="rate_limit">
+				rate_limit=#rate_limit#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="in_alarm_plant">
+				in_alarm_plant=#in_alarm_plant#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="in_alarm_driver">
+				in_alarm_driver=#in_alarm_driver#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="out_alarm_plant">
+				out_alarm_plant=#out_alarm_plant#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="out_alarm_driver">
+				out_alarm_driver=#out_alarm_driver#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="create_time">
+				create_time=#create_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="fk_creater_id">
+				fk_creater_id=#fk_creater_id#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lose_time">
+				lose_time=#lose_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="speed_time">
+				speed_time=#speed_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="fk_tenant_id">
+				fk_tenant_id=#fk_tenant_id#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<!-- 插入围栏 -->
+	<insert id="addLine">
+		insert into t_line (
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="line_name">
+				line_name
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="speed">
+				speed
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="rate_limit">
+				rate_limit
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="in_alarm_plant">
+				in_alarm_plant
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="in_alarm_driver">
+				in_alarm_driver
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="out_alarm_plant">
+				out_alarm_plant
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="out_alarm_driver">
+				out_alarm_driver
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="create_time">
+				create_time
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="fk_creater_id">
+				fk_creater_id
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lose_time">
+				lose_time
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="speed_time">
+				speed_time
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="fk_tenant_id">
+				fk_tenant_id
+			</isNotEmpty>
+		</dynamic>
+		)
+		values(
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="line_name">
+				#line_name#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="speed">
+				#speed#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="rate_limit">
+				#rate_limit#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="in_alarm_plant">
+				#in_alarm_plant#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="in_alarm_driver">
+				#in_alarm_driver#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="out_alarm_plant">
+				#out_alarm_plant#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="out_alarm_driver">
+				#out_alarm_driver#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="create_time">
+				#create_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="fk_creater_id">
+				#fk_creater_id#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lose_time">
+				#lose_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="speed_time">
+				#speed_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="fk_tenant_id">
+				#fk_tenant_id#
+			</isNotEmpty>
+		</dynamic>
+		)
+		<selectKey resultClass="Long" keyProperty="id">
+			select LAST_INSERT_ID() AS ID
+		</selectKey>
+	</insert>
+	<!-- 删除围栏 -->
+	<delete id="delLine" parameterClass="line" >  
+		delete from t_line
+		<dynamic prepend="where" >
+			<isNotEmpty prepend="and" property="id">
+				id=#id#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="line_name">
+				line_name=#line_name#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="speed">
+				speed=#speed#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="rate_limit">
+				rate_limit=#rate_limit#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="in_alarm_plant">
+				in_alarm_plant=#in_alarm_plant#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="in_alarm_driver">
+				in_alarm_driver=#in_alarm_driver#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="out_alarm_plant">
+				out_alarm_plant=#out_alarm_plant#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="out_alarm_driver">
+				out_alarm_driver=#out_alarm_driver#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="create_time">
+				create_time=#create_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="fk_creater_id">
+				fk_creater_id=#fk_creater_id#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lose_time">
+				lose_time=#lose_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="speed_time">
+				speed_time=#speed_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="fk_tenant_id">
+				fk_tenant_id=#fk_tenant_id#
+			</isNotEmpty>
+		</dynamic>
+	</delete>
+	<update id="udpLine" parameterClass="line">  
+		update t_line
+		<dynamic prepend="set" >
+			<isNotEmpty prepend="," property="line_name">
+				line_name=#line_name#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="speed">
+				speed=#speed#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="rate_limit">
+				rate_limit=#rate_limit#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="in_alarm_plant">
+				in_alarm_plant=#in_alarm_plant#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="in_alarm_driver">
+				in_alarm_driver=#in_alarm_driver#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="out_alarm_plant">
+				out_alarm_plant=#out_alarm_plant#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="out_alarm_driver">
+				out_alarm_driver=#out_alarm_driver#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="create_time">
+				create_time=#create_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="fk_creater_id">
+				fk_creater_id=#fk_creater_id#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lose_time">
+				lose_time=#lose_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="speed_time">
+				speed_time=#speed_time#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="fk_tenant_id">
+				fk_tenant_id=#fk_tenant_id#
+			</isNotEmpty>
+		</dynamic>
+		where	id=#id#
+	</update>
+	<!-- 插入围栏定点 -->
+	<insert id="addLinePoint" parameterClass="linepoint">
+		insert into t_point_line (
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="lat">
+				lat
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lng">
+				lng
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="fk_line_id">
+				fk_line_id
+			</isNotEmpty>
+		</dynamic>
+		) values (
+		<dynamic prepend=" ">
+			<isNotEmpty prepend="," property="lat">
+				#lat#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="lng">
+				#lng#
+			</isNotEmpty>
+			<isNotEmpty prepend="," property="fk_line_id">
+				#fk_line_id#
+			</isNotEmpty>
+		</dynamic>
+		)
+	</insert>
+	<select id="getLinePoint" parameterClass="linepoint" resultClass="linepoint">
+		select * from t_point_line
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="lat">
+				lat=#lat#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="lng">
+				lng=#lng#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="fk_line_id">
+				fk_line_id=#fk_line_id#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<delete id="delLinePoint" parameterClass="Long">
+		delete from t_point_line where fk_line_id=#line_id#
+	</delete>
+</sqlMap>

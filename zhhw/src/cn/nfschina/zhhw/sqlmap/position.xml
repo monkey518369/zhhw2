@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="position">
+	<typeAlias alias="position" type="cn.nfschina.zhhw.model.Position"/>
+	<parameterMap class="java.util.HashMap" id="position_map">
+		<parameter property="position" javaType="cn.nfschina.zhhw.model.Position"/>
+		<parameter property="starttime"/>
+		<parameter property="endtime"/>
+	</parameterMap>
+	<select id="getPosition" parameterMap="position_map" resultClass="position">  
+		select * from t_position
+		<dynamic prepend="where">
+			<isNotEmpty prepend="and" property="position.id">
+				id=#position.id#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="position.altitude">
+				altitude=#position.altitude#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="position.direction">
+				direction=#position.direction#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="position.lat">
+				lat=#position.lat#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="position.lng">
+				lng=#position.lng#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="position.speed">
+				speed=#position.speed#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="position.lng">
+				lng=#position.lng#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="position.status">
+				status=#position.status#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="position.createtime">
+				createtime=#position.createtime#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="position.warning">
+				warning=#position.warning#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="position.fk_car_id">
+				fk_car_id=#position.fk_car_id#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="starttime">
+				<![CDATA[createtime>#starttime#]]>
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="endtime">
+				<![CDATA[createtime<#endtime#]]>
+			</isNotEmpty>
+		</dynamic>
+		
+	</select>
+</sqlMap>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="carGroup">
+	<resultMap id="truck" class="cn.nfschina.zhhw.model.TruckInfo">
+    	<result property="id" column="id" columnIndex="1"/>
+    	<result property="com_id" column="com_id" columnIndex="2"/>
+    	<result property="plate_no" column="plate_no" columnIndex="3"/>
+    	<result property="start_date" column="start_date" columnIndex="4"/>
+    	<result property="end_date" column="end_date" columnIndex="5"/>
+    	<result property="truck_version" column="truck_version" columnIndex="6"/>
+    	<result property="remark" column="remark" columnIndex="7"/>
+    	<result property="truck_length" column="truck_length" columnIndex="8"/>
+    	<result property="truck_weight" column="truck_weight" columnIndex="9"/>
+    	<result property="truck_width" column="truck_width" columnIndex="10"/>
+  	</resultMap>
+	<select id="getCarByGroupId" parameterClass="java.lang.Long" resultMap="truck">  
+	select * from t_truck where com_id = #orgId#
+	 </select>
+</sqlMap>

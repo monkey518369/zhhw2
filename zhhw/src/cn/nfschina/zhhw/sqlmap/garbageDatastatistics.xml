@@ -1,0 +1,17 @@
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="dataStatistics">
+	<resultMap class="cn.nfschina.zhhw.model.GarbageModel" id="garbage">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="fk_car_id" column="fk_car_id" columnIndex="2"/>
+		<result property="weight" column="weight" columnIndex="3"/>
+		<result property="lng" column="lng" columnIndex="4"/>
+		<result property="lat" column="lat" columnIndex="5"/>
+		<result property="createTime" column="createtime" columnIndex="6"/>
+	</resultMap>
+
+	<select id="getGarbageByCarForTime" parameterClass="java.util.Map" resultMap="garbage">
+		select * from t_garbage
+		where fk_car_id = #id# and createtime  <![CDATA[>]]> #starttime# and createtime <![CDATA[< ]]> #endtime# 
+	</select>
+</sqlMap>

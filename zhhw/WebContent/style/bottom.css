@@ -1,0 +1,75 @@
+.bottombody1{padding:0;margin:0;margin:0 auto;font-family:Microsoft YaHei;width:100%;text-align:center;}
+.bottompart1{
+    margin: 0 auto;
+    width:100%;
+	height:30px;
+	background:#d4d4d4;
+	border:0px;
+	border-top:3px solid black;	
+}
+.bottomlink{
+    margin: 0 auto;
+    width:1043;
+	height:30px;
+	background:;
+}
+.bottomlinkevery{
+    margin: 0;
+    width:100px;
+	height:30px;
+	background:;
+	text-align:center;
+	float:left;
+	line-height:30px;
+	font-family:宋体;
+	font-size:12px;
+}
+.bottompart2{
+    margin: 0 auto;
+    width:100%;
+	height:190px;
+	background:;
+	border:0px;
+}
+.bottompart2row{
+    margin: 0 auto;
+    width:1043px;
+	height:30px;
+	background:;
+	border:0px;
+	line-height:30px;
+	font-family:宋体;
+	font-size:12px;
+	color:#7f7f7f;
+}
+.bottompart2rowevery{
+    margin: 0 ;
+    width:500px;
+	height:30px;
+	background:;
+	border:0px;
+	margin-right:20px;
+	float:left;
+
+}
+.bottompart3rowevery{
+    margin: 0 ;
+    width:310px;
+	height:30px;
+	background:;
+	border:0px;
+	margin-right:20px;
+	float:left;
+
+}
+.bottomimg{
+ 	margin: 0 auto;
+    width:50px;
+	height:50px;
+	background:url(img/bottom.png) no-repeat;
+	border:0px;
+}
+a.abottom:link{text-decoration:none;color:#7f7f7f}
+a.abottom:visited{text-decoration:none;color:#7f7f7f}
+a.abottom:hover{text-decoration:none;color:#cb0c00}
+a.abottom:active{text-decoration:none;color:#7f7f7f}

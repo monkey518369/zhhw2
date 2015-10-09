@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" 
+"http://www.ibatis.com/dtd/sql-map-config-2.dtd" >
+<sqlMapConfig>
+	<!-- 车辆管理 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/truck_manager.xml"/>
+	<!-- 终端信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/deviceInfo.xml"/>
+	<!-- 车辆信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/truckInfo.xml"/>
+	<!-- 加油信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/gasInfo.xml"/>
+	<!-- 司机信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/driverInfo.xml"/>
+	
+	<!-- shaolinxing ++++++++++++++++++++++++start -->	
+	<!-- 统计数据 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/data_statistics.xml"></sqlMap>
+	<!-- 日期时间变换 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/dateTime.xml"></sqlMap>
+	<!-- 组织信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/orginfo.xml"></sqlMap>
+	<!-- 垃圾统计 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/garbageDatastatistics.xml"></sqlMap>
+	<!-- shaolinxing ++++++++++++++++++++++++++end -->
+		
+	<!-- 故障信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/hitchInfo.xml"/>
+	<!-- 机构信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/car_org.xml"/>
+	<!-- 位置信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/position.xml"/>
+	<!-- 围栏信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/pen.xml"/>
+	<!-- 线路信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/line.xml"/>
+	<!-- 车辆报警信息 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/carwarning.xml"/>
+	<!-- update by lvbochen start -->
+	<!-- 作业状态监控 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/deviceStatus.xml"/>
+	<!-- 防拆机保护 -->
+	<sqlMap resource="cn/nfschina/zhhw/sqlmap/securityCheck.xml"/>
+	<!-- update by lvbochen end -->
+</sqlMapConfig> 

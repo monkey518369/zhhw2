@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="hitchInfo">
+	<typeAlias alias="hitchInfo" type="cn.nfschina.zhhw.model.HitchInfo"/>
+	<select id="getAllHitchInfo" parameterClass="hitchInfo" resultClass="hitchInfo">
+		select * from t_hitch
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="id">
+				id = #id#
+			</isNotNull>
+			<isNotNull prepend="and"  property="fk_truck_id">
+				fk_truck_id = #fk_truck_id#
+			</isNotNull>
+			<isNotNull prepend="and" property="summary">
+				summary like '%$summary$%'
+			</isNotNull>
+			<isNotNull prepend="and"  property="lng">
+				lng=#lng#
+			</isNotNull>
+			<isNotNull prepend="and" property="lat">
+				lat=#lat#
+			</isNotNull>
+			<isNotNull prepend="and" property="create_time">
+				create_time=#create_time#
+			</isNotNull>
+			<isNotNull prepend="and"  property="user_id">
+				user_id=#user_id#
+			</isNotNull>
+		</dynamic>
+	</select>
+	<insert id="addHitch">
+		insert into t_hitch(id,fk_truck_id,summary,lng,lat,create_time,user_id) values(#id#,#fk_truck_id#,#summary#,#lng#,#lat#,#create_time#,#user_id#)
+	</insert>
+	<update id="updateHitch">
+		update t_hitch set fk_truck_id=#fk_truck_id#,summary=#summary#,lng=#lng#,lat=#lat#,create_time=#create_time#,user_id=#user_id# where id=#id#
+	</update>
+	<delete id="deleteHitch">
+		delete from t_hitch where id=#id#
+	</delete>
+	<select id="getPlateNo" parameterClass="hitchInfo" resultClass="String">
+		select plate_no from t_car where id=#fk_truck_id#
+	</select>
+</sqlMap>

@@ -1,0 +1,31 @@
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="dataStatistics">
+	<resultMap class="cn.nfschina.zhhw.model.DataStatisticsModel" id="position">
+		<result property="id" column="id" columnIndex="1"/>
+		<result property="fk_car_id" column="fk_car_id" columnIndex="2"/>
+		<result property="warning" column="warning" columnIndex="3"/>
+		<result property="oil" column="oil" columnIndex="4"/>
+		<result property="mileage" column="mileage" columnIndex="5"/>
+		<result property="createtime" column="createtime" columnIndex="6"/>
+		<result property="online" column="status" columnIndex="7"/>
+		<result property="weight" column="weight" columnIndex="8"/>
+	</resultMap>
+
+	<select id="getstart" parameterClass="java.util.Map" resultMap="position">
+		select * from v_datastatistics
+		where fk_car_id = #id# and createtime  <![CDATA[>]]>=#starttime# and createtime <![CDATA[< ]]>#endtime# 
+		order by createtime asc limit 1
+	</select>
+	<select id="getend" parameterClass="java.util.Map" resultMap="position">
+		select * from v_datastatistics
+		where fk_car_id = #id# and createtime<![CDATA[ >]]>=#starttime# and createtime<![CDATA[ < ]]>#endtime#
+		order by createtime desc limit 1
+	</select>
+	
+	<select id="getData" parameterClass="java.util.Map" resultMap="position">
+		select * from v_datastatistics
+		where fk_car_id = #id# and createtime<![CDATA[ >]]>=#starttime# and createtime<![CDATA[ < ]]>#endtime#
+		order by createtime asc
+	</select>
+</sqlMap>

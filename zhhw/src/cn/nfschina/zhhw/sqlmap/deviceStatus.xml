@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="deviceStatus">
+	<typeAlias alias="deviceStatus" type="cn.nfschina.zhhw.model.DeviceStatus"/>
+	
+	<select id="getAllDeviceStatus" parameterClass="deviceStatus" resultClass="deviceStatus">
+		select t_device_status.* from t_device_status ,t_device where t_device_status.dev_id=t_device.id 
+		<isNotNull prepend="and" property="dev_id">
+			t_device_status.dev_id like '%$dev_id$%'
+		</isNotNull>
+		<!-- 
+		<dynamic prepend="where">
+			<isNull prepend="and">
+				t_device_status.dev_id=t_device.id
+			</isNull>
+			<isNotNull prepend="and" property="dev_id">
+				t_device_status.dev_id=t_device.id and 
+				t_device_status.dev_id like '%$dev_id$%'
+			</isNotNull>
+		</dynamic> -->
+	</select>
+</sqlMap>

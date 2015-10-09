@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="gasInfo">
+	<typeAlias alias="gasInfo" type="cn.nfschina.zhhw.model.GasInfo"/>
+	<select id="getAllGasInfo" parameterClass="gasInfo" resultClass="gasInfo">
+		select * from t_gas
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="id">
+				id = #id#
+			</isNotNull>
+			<isNotNull prepend="and"  property="fk_car_id">
+				fk_car_id = #fk_car_id#
+			</isNotNull>
+			<isNotNull prepend="and"  property="fk_driver_id">
+				fk_car_id = #fk_car_id#
+			</isNotNull>
+			<isNotEmpty prepend="and" property="type">
+				type = #type#
+			</isNotEmpty>
+			<isNotNull prepend="and" property="volume">
+				volume = #volume#
+			</isNotNull>
+			<isNotNull prepend="and"  property   ="money">
+				money = #money#
+			</isNotNull>
+			<isNotEmpty prepend="and" property="coordinate">
+				coordinate = #coordinate#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="fk_handman">
+				fk_handman = #fk_handman#
+			</isNotEmpty>
+			<isNotNull prepend="and"  property="price">
+				price = #price#
+			</isNotNull>
+			<isNotEmpty prepend="and"  property="createtime">
+				createtime = #createtime#
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<insert id="addGas" parameterClass="gasInfo">
+		insert into t_gas(id,fk_car_id,fk_driver_id,type,volume,money,price,coordinate,fk_handman,createtime) 
+		values(#id#,#fk_car_id#,#fk_driver_id#,#type#,#volume#,#money#,#price#,#coordinate#,#fk_handman#,#createtime#)
+	</insert>
+	<update id="updateGas" parameterClass="gasInfo">
+		update t_gas set fk_car_id=#fk_car_id#,type=#type#,volume=#volume#,price=#price#,
+		money=#money#,coordinate=#coordinate#,fk_handman=#fk_handman#,createtime=#createtime#,fk_driver_id=#fk_driver_id# 
+		where id=#id#
+	</update>
+	<delete id="deleteGas" parameterClass="gasInfo">
+		delete from t_gas where id=#id#
+	</delete>
+	<select id="getPlateno" parameterClass="gasInfo" resultClass="String">
+		select plate_no from t_car where id=#fk_car_id#
+	</select>
+	<select id="getDriverName" parameterClass="gasInfo" resultClass="String">
+		select driver_name from t_driver where id=#fk_driver_id#
+	</select>
+	<select id="getUserName" parameterClass="gasInfo" resultClass="String">
+		select user_name from sf_user where user_id=#fk_handman#
+	</select>
+	
+	<!-- ========================================shaolinxing start======================================== -->
+	
+	<select id="getGasByTimePart" parameterClass="java.util.Map" resultClass="gasInfo">
+		select * from t_gas where fk_car_id=#carId# and createtime <![CDATA[<]]> #endTime# 
+									and createtime <![CDATA[>]]> #startTime#
+	</select>
+	
+	<!-- ========================================shaolinxing end======================================== -->
+</sqlMap>

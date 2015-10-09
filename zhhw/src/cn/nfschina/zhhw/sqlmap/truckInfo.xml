@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="truckInfo">
+	<typeAlias alias="truckInfo" type="cn.nfschina.zhhw.model.TruckInfo"/>
+	<typeAlias alias="orgInfo" type="cn.nfschina.zhhw.model.Org"/>
+	<select id="getAllTruckInfo" parameterClass="truckInfo" resultClass="truckInfo">
+		select * from t_car
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="id">
+				id = #id#
+			</isNotNull>
+			<isNotNull prepend="and"  property="color">
+				color = #color#
+			</isNotNull>
+			<isNotNull prepend="and"  property="city">
+				city = #city#
+			</isNotNull>
+			<isNotEmpty prepend="and" property="vin">
+				vin = #vin#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="province">
+				province = #province#
+			</isNotEmpty>
+			<isNotNull prepend="and" property="fk_org_id">
+				fk_org_id= #fk_org_id#
+			</isNotNull>
+			<isNotEmpty prepend="and"  property   ="plate_no">
+				plate_no like '%$plate_no$%'
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="start_date">
+				start_date = #start_date#
+			</isNotEmpty>
+			<isNotEmpty prepend="and" property="end_date">
+				end_date = #end_date#
+			</isNotEmpty>
+			<isNotEmpty prepend="and"  property="truck_version">
+				truck_version = #truck_version#
+			</isNotEmpty>
+			<isNotNull prepend="and"  property="truck_length">
+				truck_length = #truck_length#
+			</isNotNull>
+			<isNotNull prepend="and"  property="truck_width">
+				truck_width = #truck_width#
+			</isNotNull>
+			<isNotNull prepend="and"  property="truck_width">
+				truck_weight = #truck_weight#
+			</isNotNull>
+			<isNotNull prepend="and"  property="fk_device_id">
+				fk_device_id = #fk_device_id#
+			</isNotNull>
+			<isNotEmpty prepend="and"  property="remark">
+				remark like '%$remark$%'
+			</isNotEmpty>
+			<isNotNull prepend="and"  property="online">
+				online = #online#
+			</isNotNull>
+			<isNotEmpty prepend="and"  property="sim">
+				sim like '%$sim$%'
+			</isNotEmpty>
+		</dynamic>
+	</select>
+	<insert id="addTruck" parameterClass="truckInfo">
+	<![CDATA[
+		insert into t_car(id,color,city,province,fk_org_id,plate_no,start_date,end_date,truck_version,truck_length,truck_width,
+		truck_weight,remark,online,sim,fk_device_id) values(#id#,#color#,#city#,#province#,#fk_org_id#,#plate_no#,#start_date#,
+		#end_date#,#truck_version#,#truck_length#,#truck_width#,#truck_weight#,#remark#,#online#,#sim#,#fk_device_id#)
+		]]>
+	</insert>
+	<update id="updateTruck" parameterClass="truckInfo">
+		update t_car set color=#color#,city=#city#,province=#province#,fk_org_id=#fk_org_id#,plate_no=#plate_no#,start_date=#start_date#,end_date=#end_date#,
+		truck_version=#truck_version#,truck_length=#truck_length#,truck_width=#truck_width#,truck_weight=#truck_weight#,remark=#remark#,online=#online#,
+		sim=#sim#,fk_device_id=#fk_device_id# where id=#id#
+	</update>
+	<delete id="deleteTruck" parameterClass="truckInfo">
+		delete from t_car where id=#id#
+	</delete>
+	<!-- shaolinxing+++++++++++++++++++++++++start -->
+	<select id="gettruckbyid" parameterClass="string" resultClass="truckInfo">
+		select * from t_car where id = #id#
+	</select>
+	<select id="gettruckbyorg" parameterClass="string" resultClass="truckInfo">
+		select * from t_car where fk_org_id = #orgId#
+	</select>
+	<!-- shaolinxing+++++++++++++++++++++++++end -->
+	<select id="getTruckComname" parameterClass="truckInfo" resultClass="String">
+	 	select org_name from sf_org 
+	</select>
+	
+	<select id="getOrgName" parameterClass="truckInfo" resultClass="String">
+		select org_name from sf_org where org_id=#fk_org_id# 
+	</select>
+	
+	<select id="getOrg" parameterClass="truckInfo" resultClass="orgInfo">
+		select * from sf_org where org_id= #fk_org_id#
+	</select>
+	
+	<select id="getDevName" parameterClass="truckInfo" resultClass="String">
+		select dev_name from t_device where id=#fk_device_id# 
+	</select>
+	
+	<select id="getTruckById" parameterClass="java.util.List" resultClass="truckInfo">
+		select plate_no,sim from t_car where id in <iterate conjunction=","  open="(" close=")">#list[]#</iterate> 
+	</select>
+	
+</sqlMap>

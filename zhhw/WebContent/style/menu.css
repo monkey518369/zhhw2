@@ -1,0 +1,162 @@
+@CHARSET "UTF-8";
+
+/*系统安全节点*/
+.menu-node-security {
+	background-image: url(images/menu/security.png) !important;
+	background-repeat: no-repeat;
+}
+/*机构节点*/
+.menu-node-org {
+	background-image: url(images/menu/org.png) !important;
+	background-repeat: no-repeat;
+}
+/*用户节点*/
+.menu-node-user {
+	background-image: url(images/menu/user.png) !important;
+	background-repeat: no-repeat;
+}
+/*角色节点*/
+.menu-node-role {
+	background-image: url(images/menu/role.png) !important;
+	background-repeat: no-repeat;
+}
+/*岗位节点*/
+.menu-node-position {
+	background-image: url(images/menu/position.png) !important;
+	background-repeat: no-repeat;
+}
+/*权限节点*/
+.menu-node-permission {
+	background-image: url(images/menu/permission.png) !important;
+	background-repeat: no-repeat;
+}
+/*菜单节点*/
+.menu-node-menu {
+	background-image: url(images/menu/menu.png) !important;
+	background-repeat: no-repeat;
+}
+/*模块节点*/
+.menu-node-module {
+	background-image: url(images/menu/module.png) !important;
+	background-repeat: no-repeat;
+}
+/*功能节点*/
+.menu-node-function {
+	background-image: url(images/menu/function.png) !important;
+	background-repeat: no-repeat;
+}
+/*门户应用节点*/
+.menu-node-portlet {
+	background-image: url(images/menu/portlet.png) !important;
+	background-repeat: no-repeat;
+}
+/*日志节点*/
+.menu-node-log {
+	background-image: url(images/menu/log.png) !important;
+	background-repeat: no-repeat;
+}
+
+/*系统配置节点*/
+.menu-node-config {
+	background-image: url(images/menu/config.png) !important;
+	background-repeat: no-repeat;
+}
+/*数据字典*/
+.menu-node-item {
+	background-image: url(images/menu/item.png) !important;
+	background-repeat: no-repeat;
+}
+/*工作流管理*/
+.menu-node-workflow {
+	background-image: url(images/menu/workflow.png) !important;
+	background-repeat: no-repeat;
+}
+/*工作流定义管理*/
+.menu-node-workflowdef {
+	background-image: url(images/menu/wfdef.png) !important;
+	background-repeat: no-repeat;
+}
+
+/*工作流定义管理*/
+.menu-node-pesconfig {
+	background-image: url(images/menu/pesconfig.png) !important;
+	background-repeat: no-repeat;
+}
+/*Activiti工作流管理*/
+.menu-node-activitiworkflow {
+	background-image: url(images/menu/process-16.png) !important;
+	background-repeat: no-repeat;
+}
+/*Activiti工作流管理*/
+.menu-node-activitiworkflowmanagement {
+	background-image: url(images/menu/mm-manage.png) !important;
+	background-repeat: no-repeat;
+}
+/*Activiti管理*/
+.menu-node-activitideployment {
+	background-image: url(images/menu/deployment-16.png) !important;
+	background-repeat: no-repeat;
+}
+/*Activiti管理*/
+.menu-node-systemmonitor {
+	background-image: url(images/menu/systemmonitor.png) !important;
+	background-repeat: no-repeat;
+}
+/*用户行为分析*/
+.menu-node-analysis {
+	background-image: url(images/menu/analysis.png) !important;
+	background-repeat: no-repeat;
+}
+/*全文检索*/
+.menu-node-search {
+	background-image: url(images/menu/search.png) !important;
+	background-repeat: no-repeat;
+}
+
+/*监控*/
+.menu-node-monitor {
+	background-image: url(images/menu/monitor.png) !important;
+	background-repeat: no-repeat;
+}
+
+/*系统监控*/
+.menu-node-systemmonitor {
+	background-image: url(images/menu/systemmonitor.png) !important;
+	background-repeat: no-repeat;
+}
+
+/*数据监控*/
+.menu-node-datamonitor {
+	background-image: url(images/menu/datamonitor.png) !important;
+	background-repeat: no-repeat;
+}
+
+/*任务调度*/
+.menu-node-timer {
+	background-image: url(images/menu/timer.png) !important;
+	background-repeat: no-repeat;
+}
+
+/*cron表达式*/
+.menu-node-cron {
+	background-image: url(images/menu/cron.png) !important;
+	background-repeat: no-repeat;
+}
+
+/*weboffice*/
+.menu-node-office {
+	background-image: url(images/menu/office.png) !important;
+	background-repeat: no-repeat;
+}
+
+/*controller*/
+.menu-node-controller {
+	background-image: url(images/menu/controller.png) !important;
+	background-repeat: no-repeat;
+}
+
+/*message*/
+.menu-node-message {
+	background-image: url(images/menu/message.png) !important;
+	background-repeat: no-repeat;
+}

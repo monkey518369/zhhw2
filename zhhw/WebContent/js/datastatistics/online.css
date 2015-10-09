@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+/* 整个body的样式 */
+body{background-color: #f0f9fd}
+
+
+/* mileage 上面面板的样式 */
+.online_north{
+	height:42px;
+}
+
+/* mileage 左面面板的样式 */
+/*总体样式*/
+.online_west{
+	height:100px;
+	width:200px;
+}
+/*选统计对象的div样式*/
+.online_west .west_top{
+	height:80px;
+	border-bottom:1px solid #7AC5CD;
+}
+/*选择统计对象的单选框的样式*/
+.online_west .west_top .online_type{
+	margin-left:40px;
+	margin-top:15px;
+}
+/*中间查找组织或*/
+.online_west .west_mid{
+	height:100px;
+	border-bottom:1px solid #7AC5CD;
+}
+.online_west .west_mid div{
+	margin-top:20px;
+	margin-left:20px;
+}
+.online_west .west_mid div a{
+	width:140px;
+	height:20px;
+}
+.online_west .west_bot{
+	height:400px;
+}
+.online_west .west_bot div{
+	padding:5px;
+}
+
+/* mileage 中间面面板的样式 */
+.online_center {
+	
+}
+.online_center .center_top{
+	padding-top:20px;
+	padding-left:20px;
+	height:45px;
+}
+.online_center .center_top label{
+	margin-left:10px;
+}
+.online_center .center_top .center_starttime{
+	 width:200px;
+}
+.online_center .center_top .center_endtime{
+	 width:200px;
+}
+.online_center .center_top .search_time_value{
+	 padding:10px;
+}
+.online_center .center_top .top_search_btn{
+	 width:50px;
+	 margin-left:20px;
+}
+.center_content{
+	width:100%;
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="carWarning">
+	<typeAlias alias="carWarning" type="cn.nfschina.zhhw.model.CarWarning"/>
+	
+	<parameterMap class="java.util.Map" id="updateCarWarningMap">
+		<parameter property="describe"/>
+		<parameter property="fk_handman"/>
+		<parameter property="id"/>
+	</parameterMap>
+	
+	<resultMap class="carWarning" id="carWaringMap">
+		<result property="id" column="warn.id"/>
+		<result property="car_id" column="car.id"/>
+		<result property="plate_no" column="plate_no"/>
+		<result property="type" column="type"/>
+		<result property="car_lng" column="lng"/>
+		<result property="car_lat" column="lat"/>
+		<result property="create_time" column="create_time"/>
+		<result property="hand_time" column="handtime"/>
+		<result property="handman" column="user_name"/>
+		<result property="describe" column="describe"/>
+		<result property="status" column="status"/>
+	</resultMap>
+
+	<select id="getAllCarWarning" resultMap="carWaringMap">
+		<![CDATA[
+			select warn.id,car.id,car.plate_no,warn.type,position.lng,position.lat,warn.create_time,warn.handtime,user.user_name,warn.`describe`,warn.status 
+				from t_alarm warn,t_car car,t_position position,sf_user user 
+				where warn.fk_car_id=car.id and warn.fk_position_id=position.id and user.user_id=warn.fk_handman;
+		]]>
+	</select>
+	
+	<update id="updateCarWarning" parameterMap="updateCarWarningMap">
+		<![CDATA[
+			update t_alarm set status='1',`describe`=?,handtime=now(),fk_handman=? where id=?;
+		]]>
+	</update>
+	
+	<!-- ========================================shaolinxing start======================================== -->
+	<select id="getWarningCountByTimeType2" parameterClass="java.util.Map" resultClass="int">
+	<![CDATA[
+		select count(*) from t_alarm where fk_car_id=#id# and create_time > #startDate# 
+							         and create_time <#endDate# and type = #type# and type=#type#
+	]]>
+	</select>
+	<select id="getWarningCountByTimeType1" parameterClass="java.util.Map" resultClass="int">
+	<![CDATA[
+		select count(*) from t_alarm where fk_car_id=#id# and create_time > #startDate# 
+					 and create_time < (select date_add(#startDate#, interval 1 day)) and type=#type#
+	]]>
+	</select>
+	
+	<!-- ========================================shaolinxing end======================================== -->
+	
+</sqlMap>

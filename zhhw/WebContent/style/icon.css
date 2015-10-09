@@ -1,0 +1,17 @@
+.big-size-icon>a>span {
+	line-height: 90px;
+	padding-right: 90px;
+}
+
+.big-size-icon>a>span>span.l-btn-text {
+	width: 90px;
+	line-height: 90px;
+}
+
+.big-size-icon>a>span>span.l-btn-icon {
+	width: 90px;
+	height: 90px;
+	line-height: 90px;
+	top: 0;
+	margin-top: 2px;
+}

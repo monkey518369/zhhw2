@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="deviceInfo">
+	<typeAlias alias="deviceInfo" type="cn.nfschina.zhhw.model.DeviceInfo"/>
+	
+	<select id="getAllDeviceInfo" parameterClass="deviceInfo" resultClass="deviceInfo">
+		select * from t_device
+		<dynamic prepend="where">
+			<isNotNull prepend="and" property="id">
+				id = #id#
+			</isNotNull>
+			<isNotNull prepend="and" property="dev_name">
+				dev_name like '%$dev_name$%'
+			</isNotNull>
+			<isNotNull prepend="and" property="version">
+				version like '%$version$%'
+			</isNotNull>
+			<isNotNull prepend="and" property="manufacturer">
+				manufacturer like '%$manufacturer$%'
+			</isNotNull>
+		</dynamic>
+	</select>
+	<insert id="addDevice" parameterClass="deviceInfo">
+		insert into t_device (id,dev_name,version,manufacturer) values(#id#,#dev_name#,#version#,#manufacturer#)
+	</insert>
+	<update id="updateDevice" parameterClass="deviceInfo">
+		update t_device set dev_name=#dev_name#,version=#version#,manufacturer=#manufacturer# where id=#id#
+	</update>
+	<delete id="deleteDevice" parameterClass="deviceInfo">
+		delete from t_device where id=#id#
+	</delete>
+</sqlMap>

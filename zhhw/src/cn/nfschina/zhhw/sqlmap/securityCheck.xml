@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="securityCheck">
+	<typeAlias alias="securityCheck" type="cn.nfschina.zhhw.model.SecurityCheck"/>
+	
+	<select id="deviceSecurityCheck" parameterClass="securityCheck" resultClass="securityCheck">
+		select car.id,car.plate_no car_no,dev.id dev_id,dev.dev_name,last.lng car_lng,last.lat car_lat,date_format(last.createtime,"%Y-%m-%d %H:%i:%s") createtime 
+		from t_car car,t_position_last last,sf_org org ,t_device dev 
+		where last.fk_car_id=car.id and  car.fk_org_id=org.org_id and dev.fk_car_id=car.id		
+		<isNotNull prepend="and" property="car_no">
+			car.plate_no like '%$car_no$%'
+		</isNotNull>
+	</select>
+</sqlMap>
